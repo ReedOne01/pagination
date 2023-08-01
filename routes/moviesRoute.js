@@ -1,14 +1,14 @@
 const router = require("express").Router();
 const Movie = require("../model/moviesSchema");
-const movies = require("../config/movies.json");
+// const movies = require("../config/movies.json");
 
 router.get("/movies", async (req, res) => {
   try {
     const page = parseInt(req.query.page) - 1 || 0;
     const limit = parseInt(req.query.limit) || 5;
     const search = parseInt(req.query.search) || "";
-    const sort = parseInt(req.query.sort) || "rating";
-    const genre = parseInt(req.query.genre) || "All";
+    let sort = req.query.sort || "rating";
+    let genre = req.query.genre || "All";
 
     const genreOptions = [
       "Action",
@@ -33,12 +33,14 @@ router.get("/movies", async (req, res) => {
       sortBy[sort[0]] = "asc";
     }
 
-    const movies = await Movie.find({ name: { $regex: search, $options: "i" } })
-      .where("genre")
-      .in([...genre])
+    const movies = await Movie.find({
+      name: { $regex: search, $options: "i" },
+    })
+      // .where("genre")
+      // .in([...genre])
       .sort(sortBy)
-      .skip(page * limit)
-      .limit(limit);
+      .limit(limit)
+      .skip(page * limit);
 
     const total = await Movie.countDocuments({
       genre: { $in: [...genre] },
@@ -56,7 +58,7 @@ router.get("/movies", async (req, res) => {
 
     res.status(200).json(response);
   } catch (error) {
-    res.status(404).json(error);
+    res.status(404).json(error.message);
   }
 });
 
@@ -76,12 +78,19 @@ router.get("/movies", async (req, res) => {
 //   .then((docs) => console.log(docs))
 //   .catch((error) => console.log(error));
 
+router.get("/", async (req, res) => {
+  try {
+    const data = await Movie.find();
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const info = req.body;
-    const data = await Movie.create({
-      info,
-    });
+    const data = await Movie.create({});
     res.status(200).json(data);
     console.log("file written successfully");
   } catch (error) {
