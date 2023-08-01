@@ -1,0 +1,68 @@
+[
+  {
+    "name": "game of thrones",
+    "year": "2009",
+    "genre": [" thriller", "drama"],
+    "rating": "9.2"
+  },
+  {
+    "name": "The 100",
+    "year": "2013",
+    "genre": [" thriller", "Sci-fi", "drama"],
+    "rating": "7.2"
+  },
+  {
+    "name": "spartacus",
+    "year": "2013",
+    "genre": [" thriller", "drama", "action"],
+    "rating": "9.8"
+  },
+  {
+    "name": "Hercules",
+    "year": "2007",
+    "genre": ["action", "drama"],
+    "rating": "8.2"
+  },
+  {
+    "name": "24hours",
+    "year": "2003",
+    "genre": ["action", "drama", " thriller"],
+    "rating": "8.2"
+  },
+  {
+    "name": "life-line",
+    "year": "2007",
+    "genre": ["adventure", "drama"],
+    "rating": "8.2"
+  },
+  {
+    "name": "boat",
+    "year": "2020",
+    "genre": ["action", "drama"],
+    "rating": "8.2"
+  },
+  {
+    "name": "amergaddeon",
+    "year": "2021",
+    "genre": ["action", "drama", "Sci-fi"],
+    "rating": "8.2"
+  },
+  {
+    "name": "ile ijo",
+    "year": "2023",
+    "genre": ["drama"],
+    "rating": "8.2"
+  },
+  {
+    "name": "lie with me",
+    "year": "2023",
+    "genre": ["adventure", " thriller", "drama"],
+    "rating": "8.2"
+  },
+  {
+    "name": "300 spartans",
+    "year": "2012",
+    "genre": [" thriller", "drama", "action"],
+    "rating": "9.1"
+  }
+]
